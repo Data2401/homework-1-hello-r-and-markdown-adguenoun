@@ -2,10 +2,14 @@
 title: "Hello R"
 author: "Adam Guenoun"
 date: "Data 2401"
-output: html_document
+output: 
+  html_document: 
+    fig_width: 9
+    fig_height: 9
+    highlight: espresso
 ---
 
-MAKE SURE YOU READ AND FOLLOW **ALL** INSTRUCTIONS ON THE INSTRUCTION DOCUMENT. 
+MAKE SURE YOU READ AND FOLLOW **ALL** INSTRUCTIONS ON THE INSTRUCTION DOCUMENT.
 
 ### Load packages
 
@@ -13,7 +17,6 @@ MAKE SURE YOU READ AND FOLLOW **ALL** INSTRUCTIONS ON THE INSTRUCTION DOCUMENT.
 library(tidyverse) 
 library(datasauRus)
 ```
-
 
 ### Exercise 1
 
@@ -51,7 +54,6 @@ ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
 
 ```
 
-
 Next, let's calculate the correlation between `x` and `y` in this dataset.
 
 ```{r cor-star}
@@ -83,7 +85,6 @@ dino_data %>%
 
 The correlation coefficient of 'circle' is -0.0683. it is similar to 'dino's' coefficient of -0.0645, but has a minuscule increase in negative correlation.
 
-
 ### Exercise 5
 
 First we will plot all of the datasets
@@ -95,12 +96,10 @@ ggplot(datasaurus_dozen, aes(x = x, y = y, color = dataset))+
   theme(legend.position = "none")
 ```
 
-Now we will find the correlation coefficient for all datasets
+Now we will find the correlation coefficient for all the datasets
 
 ```{r cor-all}
 datasaurus_dozen %>%
   group_by(dataset) %>%
   summarize(r = cor(x,y))
 ```
-
-(Add code and narrative as needed. To add R chunks either type out the backticks, curly braces, and the letter `r` or use the Insert chunk button above, with the green +C.)
