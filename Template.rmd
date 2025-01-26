@@ -66,15 +66,23 @@ The correlation coefficient for 'star' is -0.0630. Its correlation coefficient i
 
 (Add code and narrative as needed. Note that two R chunks are given but they are not labeled. Use the convention from above to name them appropriately.)
 
-```{r}
+```{r plot-circle}
+dino_data <- datasaurus_dozen %>%
+  filter(dataset == "circle")
+ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
+  geom_point()
 
 
 ```
 
-```{r}
-
+```{r cor-circle}
+dino_data %>%
+  summarize(r = cor(x, y))
 
 ```
+
+The correlation coefficient of 'circle' is -0.0683. it is similar to 'dino's' coefficient of -0.0645, but has a minuscule increase in negative correlation.
+
 
 ### Exercise 5
 
